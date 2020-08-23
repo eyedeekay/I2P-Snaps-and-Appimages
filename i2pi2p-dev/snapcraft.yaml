@@ -1,4 +1,4 @@
-name: i2pi2p
+name: i2pi2p-dev
 version: 'latest'
 summary: Invisible Internet Project (I2P) - anonymous network
 description: |
@@ -11,7 +11,7 @@ confinement: strict
 base: core18
 
 parts:
-  i2pi2p:
+  i2pi2p-dev:
     plugin: ant
     source: https://github.com/i2p/i2p.i2p.git
     ant-build-targets:
@@ -48,7 +48,7 @@ parts:
       - expect
 
 apps:
-  i2pi2p:
+  i2pi2p-dev:
     command: $SNAP/runplain.sh
     environment:
       JAVA_HOME: $SNAP/usr/lib/jvm/java-11-openjdk-amd64

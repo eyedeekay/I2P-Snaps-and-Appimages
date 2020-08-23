@@ -6,6 +6,13 @@ description: |
   applications can use to securely communicate. All data is wrapped with several
   layers of encryption, and the network is both distributed and dynamic, with no
   trusted parties.
+  
+  This is an unofficial Snap maintained by I2P contributor idk. It tracks the latest
+  release of the I2P Java Reference Implementation.
+
+  To install it, use `sudo snap install i2pi2p`
+
+  To run it, use `/snap/i2pi2p/current/runplain.sh`
 
 confinement: strict
 base: core18

@@ -1,6 +1,6 @@
 name: i2pi2p-dev
 version: 'latest'
-summary: Invisible Internet Project (I2P) - anonymous network
+summary: Invisible Internet Project (I2P) - anonymous network - Dev Builds
 description: |
   I2P is an anonymizing network, offering a simple layer that identity-sensitive
   applications can use to securely communicate. All data is wrapped with several
@@ -8,7 +8,7 @@ description: |
   trusted parties.
   
   This is an unofficial Snap maintained by I2P contributor idk. It tracks the latest
-  release of the I2P Java Reference Implementation.
+  source code of the I2P Java Reference Implementation.
 
   To install it, use `sudo snap install i2pi2p`
 

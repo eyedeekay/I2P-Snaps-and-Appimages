@@ -8,7 +8,7 @@ release: release-stable upload-stable release-dev upload-dev
 
 release-stable:
 	cd i2pi2p && \
-		snapcraft
+		snapcraft clean && snapcraft
 
 upload-stable:
 	cd i2pi2p && \
@@ -16,7 +16,7 @@ upload-stable:
 
 release-dev:
 	cd i2pi2p-dev && \
-		snapcraft 
+		snapcraft clean && snapcraft
 
 upload-dev:
 	cd i2pi2p-dev && \

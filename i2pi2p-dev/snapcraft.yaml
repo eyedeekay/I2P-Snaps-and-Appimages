@@ -1,0 +1,60 @@
+name: i2pi2p
+version: 'latest'
+summary: Invisible Internet Project (I2P) - anonymous network
+description: |
+  I2P is an anonymizing network, offering a simple layer that identity-sensitive
+  applications can use to securely communicate. All data is wrapped with several
+  layers of encryption, and the network is both distributed and dynamic, with no
+  trusted parties.
+
+confinement: strict
+base: core18
+
+parts:
+  i2pi2p:
+    plugin: ant
+    source: https://github.com/i2p/i2p.i2p.git
+    ant-build-targets:
+      - clean
+      - installer
+    override-build: |
+      ant clean installer
+      cp -v install.jar /tmp/i2pinstall.jar
+      mkdir -p /snap/i2pi2p/current
+      sed -i "s|/opt/i2p|/snap/i2pi2p/current|g" Docker.expt
+      expect -f Docker.expt; true
+      sed -i "s|/root|$SNAP_DATA|g" /snap/i2pi2p/current/i2prouter
+      cp -rv /snap/i2pi2p/current/* /root/prime
+    build-packages:
+      - default-jdk
+      - libjetty9-java
+      - libtaglibs-standard-jstlel-java
+      - libtomcat9-java
+      - bash-completion
+      - gettext
+      - libgetopt-java
+      - libjson-simple-java
+      - libgmp-dev
+      - libservice-wrapper-java
+      - po-debconf
+      - libc6-i386
+      - adduser
+      - apparmor
+      - libjbigi-jni
+      - lsb-base
+      - service-wrapper
+      - ucf
+      - tar
+      - expect
+
+apps:
+  i2pi2p:
+    command: $SNAP/runplain.sh
+    environment:
+      JAVA_HOME: $SNAP/usr/lib/jvm/java-11-openjdk-amd64
+      PATH: $JAVA_HOME/jre/bin:$PATH
+    plugs:
+      - home
+      - network
+      - network-bind
+      - firewall-control

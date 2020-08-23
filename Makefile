@@ -4,7 +4,11 @@ VERSION=0.9.46
 echo:
 	@echo make release to do a release $(VERSION)
 
-release: release-stable upload-stable release-dev upload-dev
+release: dev stable
+
+stable: release-stable upload-stable
+
+dev: release-dev upload-dev
 
 release-stable:
 	cd i2pi2p && \

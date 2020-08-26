@@ -8,7 +8,7 @@ echo:
 	@echo make release to do a release $(VERSION)
 
 version:
-	gothub release -s $(GITHUB_TOKEN) -u $(USER_GH) -r $(packagename) -t v$(VERSION) -d "version $(VERSION)"
+	gothub release -s $(GITHUB_TOKEN) -u $(USER_GH) -r $(packagename) -t v$(VERSION) -d "version $(VERSION)"; true
 
 release: version dev stable
 

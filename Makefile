@@ -1,10 +1,16 @@
 
+
+USER_GH=eyedeekay
+packagename=I2P-Snaps-and-Appimages
 VERSION=0.9.47
 
 echo:
 	@echo make release to do a release $(VERSION)
 
-release: dev stable
+version:
+	gothub release -s $(GITHUB_TOKEN) -u $(USER_GH) -r $(packagename) -t v$(VERSION) -d "version $(VERSION)"
+
+release: version dev stable
 
 stable: release-stable upload-stable
 

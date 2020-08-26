@@ -1,5 +1,5 @@
 
-VERSION=0.9.46
+VERSION=0.9.47
 
 echo:
 	@echo make release to do a release $(VERSION)

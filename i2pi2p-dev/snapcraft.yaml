@@ -27,11 +27,8 @@ parts:
     override-build: |
       ant clean installer
       cp -v install.jar /tmp/i2pinstall.jar
-      mkdir -p /snap/i2pi2p/current
-      sed -i "s|/opt/i2p|/snap/i2pi2p/current|g" Docker.expt
+      sed -i "s|/opt/i2p|$SNAP_USER_COMMON|g" Docker.expt
       expect -f Docker.expt; true
-      sed -i "s|/root|$SNAP_DATA|g" /snap/i2pi2p/current/i2prouter
-      cp -rv /snap/i2pi2p/current/* /root/prime
     build-packages:
       - default-jdk
       - libjetty9-java
@@ -56,7 +53,7 @@ parts:
 
 apps:
   i2pi2p-dev:
-    command: $SNAP/runplain.sh
+    command: $SNAP_USER_COMMON/runplain.sh
     environment:
       JAVA_HOME: $SNAP/usr/lib/jvm/java-11-openjdk-amd64
       PATH: $JAVA_HOME/jre/bin:$PATH

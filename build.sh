@@ -16,10 +16,10 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	fi
 
 	if [ ! -d ../i2p.i2p ]; then
-		git clone https://i2pgit.org/i2p-hackers/i2p.i2p ../i2p.i2p
+		git clone https://github.com/i2p/i2p.i2p ../i2p.i2p $@
 	fi
 	if [ ! -d ../i2p.firefox ]; then
-		git clone https://i2pgit.org/i2p-hackers/i2p.firefox ../i2p.firefox
+		git clone https://github.com/i2p/i2p.firefox ../i2p.firefox -b EXPERIMENTAL-jpackage
 	fi
 
 	echo "cleaning"

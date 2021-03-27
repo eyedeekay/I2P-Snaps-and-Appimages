@@ -18,9 +18,11 @@ dev: release-dev upload-dev pull-dev push-dev
 
 appimage: pull-stable trick
 
+export USE_LXD="--use-lxd"
+
 release-stable:
 	cd i2pi2p && \
-		/snap/bin/snapcraft clean && /snap/bin/snapcraft
+		/snap/bin/snapcraft clean $(USE_LXD) && /snap/bin/snapcraft $(USE_LXD)
 
 upload-stable:
 	cd i2pi2p && \
@@ -28,7 +30,7 @@ upload-stable:
 
 release-dev:
 	cd i2pi2p-dev && \
-		/snap/bin/snapcraft clean && /snap/bin/snapcraft
+		/snap/bin/snapcraft clean $(USE_LXD) && /snap/bin/snapcraft $(USE_LXD)
 
 upload-dev:
 	cd i2pi2p-dev && \

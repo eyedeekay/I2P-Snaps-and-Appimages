@@ -20,12 +20,12 @@ base: core20
 parts:
   i2pi2p-dev:
     plugin: make
-    source: https://github.com/i2p/I2P-Snapps-and-Appimages.git
+    source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
     override-build: |
       ./build.sh
       dpkg -i *.deb
     build-packages:
-      - default-jdk
+      - openjdk-14-jdk
       - libjetty9-java
       - libtaglibs-standard-jstlel-java
       - libtomcat9-java

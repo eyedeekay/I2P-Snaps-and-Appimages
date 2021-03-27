@@ -20,13 +20,12 @@ base: core20
 parts:
   i2pi2p:
     plugin: make
-    source: https://github.com/i2p/I2P-Snapps-and-Appimages.git
-    source-tag: i2p-$SNAPCRAFT_PROJECT_VERSION
+    source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
     override-build: |
-      ./build.sh
+      ./build.sh -b i2p-$SNAPCRAFT_PROJECT_VERSION
       apt install -y ./*.deb
     build-packages:
-      - default-jdk
+      - openjdk-14-jdk
       - libjetty9-java
       - libtaglibs-standard-jstlel-java
       - libtomcat9-java

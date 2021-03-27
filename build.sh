@@ -95,6 +95,6 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		--verbose \
 		$JPACKAGE_OPTS \
 		--resource-dir build \
-		--license-file LICENSE
+		--license-file LICENSE \
 		--input build --main-jar launcher.jar --main-class net.i2p.router.PackageLauncher
 fi

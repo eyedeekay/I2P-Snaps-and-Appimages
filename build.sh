@@ -60,7 +60,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	cp -R "$RES_DIR"/i2ptunnel.config build/config
 	cp -R "$RES_DIR"/clients.config build/config
 	cp -R "$RES_DIR"/wrapper.config build/config
-	cp ../i2p.i2p/LICENSE LICENSE
+	cp ../i2p.firefox/LICENSE LICENSE
 	echo "routerconsole.browser=/usr/local/bin/i2pconfig" | tee build/config/router.config
 
 	cd build/config

@@ -15,20 +15,15 @@ description: |
   To run it, use `/snap/i2pi2p/current/runplain.sh`
 
 confinement: strict
-base: core18
+base: core20
 
 parts:
   i2pi2p-dev:
-    plugin: ant
-    source: https://github.com/i2p/i2p.i2p.git
-    ant-build-targets:
-      - clean
-      - installer
+    plugin: make
+    source: https://github.com/i2p/I2P-Snapps-and-Appimages.git
     override-build: |
-      ant clean installer
-      cp -v install.jar /tmp/i2pinstall.jar
-      sed -i "s|/opt/i2p|$SNAP_USER_COMMON|g" Docker.expt
-      expect -f Docker.expt; true
+      ./build.sh
+      dpkg -i *.deb
     build-packages:
       - default-jdk
       - libjetty9-java
@@ -50,13 +45,16 @@ parts:
       - ucf
       - tar
       - expect
+      - git
+      - nsis
+      - jq
+      - curl
+      - dos2unix
+      - make
 
 apps:
   i2pi2p-dev:
-    command: $SNAP_USER_COMMON/runplain.sh
-    environment:
-      JAVA_HOME: $SNAP/usr/lib/jvm/java-11-openjdk-amd64
-      PATH: $JAVA_HOME/jre/bin:$PATH
+    command: /opt/i2p/bin/I2P
     plugs:
       - home
       - network

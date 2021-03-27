@@ -20,19 +20,19 @@ appimage: pull-stable trick
 
 release-stable:
 	cd i2pi2p && \
-		snapcraft clean && snapcraft
+		/snap/bin/snapcraft clean && /snap/bin/snapcraft
 
 upload-stable:
 	cd i2pi2p && \
-		snapcraft upload --release=stable i2pi2p_$(VERSION)_amd64.snap
+		/snap/bin/snapcraft upload --release=stable i2pi2p_$(VERSION)_amd64.snap
 
 release-dev:
 	cd i2pi2p-dev && \
-		snapcraft clean && snapcraft
+		/snap/bin/snapcraft clean && /snap/bin/snapcraft
 
 upload-dev:
 	cd i2pi2p-dev && \
-		snapcraft upload --release=edge i2pi2p-dev_latest_amd64.snap
+		/snap/bin/snapcraft upload --release=edge i2pi2p-dev_latest_amd64.snap
 
 pull-stable:
 	snap download --edge i2pi2p --basename i2pi2p_$(VERSION)_amd64

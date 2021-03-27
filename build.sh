@@ -30,7 +30,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	ant updater
 	cd $HERE
 	cd ../i2p.firefox
-	make && make checkinstall
+	make prep && make checkinstall
 	cp -v *.deb "$HERE"
 	cd $HERE
 	RES_DIR="$HERE/../i2p.i2p/installer/resources"

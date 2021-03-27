@@ -1,5 +1,5 @@
 name: i2pi2p
-version: '0.9.47'
+version: '0.9.49'
 summary: Invisible Internet Project (I2P) - anonymous network
 description: |
   I2P is an anonymizing network, offering a simple layer that identity-sensitive
@@ -52,6 +52,7 @@ parts:
       - dos2unix
       - make
       - ant
+      - checkinstall
 
 apps:
   i2pi2p:

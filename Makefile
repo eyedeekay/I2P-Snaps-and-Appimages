@@ -2,7 +2,7 @@
 
 USER_GH=eyedeekay
 packagename=I2P-Snaps-and-Appimages
-VERSION=0.9.47
+VERSION=0.9.49
 
 echo:
 	@echo make release to do a release $(VERSION)
@@ -20,7 +20,12 @@ appimage: pull-stable trick
 
 export USE_LXD="--use-lxd"
 
-release-stable:
+OLD_VERSION=`grep 'version:' i2pi2p/snapcraft.yaml`
+
+update-stable:
+	sed -i "s|$(OLD_VERSION)|version: '$(VERSION)'|g" i2pi2p/snapcraft.yaml
+
+release-stable: update-stable
 	cd i2pi2p && \
 		/snap/bin/snapcraft clean $(USE_LXD) && /snap/bin/snapcraft $(USE_LXD)
 

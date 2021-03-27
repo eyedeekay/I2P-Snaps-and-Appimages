@@ -51,6 +51,7 @@ parts:
       - curl
       - dos2unix
       - make
+      - ant
 
 apps:
   i2pi2p:

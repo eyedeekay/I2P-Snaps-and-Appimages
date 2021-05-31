@@ -1,5 +1,5 @@
 name: i2pi2p
-version: '0.9.49'
+version: '0.9.50'
 summary: Invisible Internet Project (I2P) - anonymous network
 description: |
   I2P is an anonymizing network, offering a simple layer that identity-sensitive
@@ -10,9 +10,7 @@ description: |
   This is an unofficial Snap maintained by I2P contributor idk. It tracks the latest
   release of the I2P Java Reference Implementation.
 
-  To install it, use `sudo snap install i2pi2p`
-
-  To run it, use `/snap/i2pi2p/current/runplain.sh`
+  To install it, use `sudo snap install i2pi2p``
 
 confinement: strict
 base: core20
@@ -21,9 +19,12 @@ parts:
   i2pi2p:
     plugin: make
     source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
+    source-branch: master
     override-build: |
-      ./build.sh -b i2p-$SNAPCRAFT_PROJECT_VERSION
-      apt install -y ./*.deb
+      wget https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-0.9.50/profile.tar.gz
+      tar -xvf profile.tar.gz
+      cp -rv profile $SNAPCRAFT_PART_INSTALL
+#    override-install: |
     build-packages:
       - openjdk-14-jdk
       - libjetty9-java
@@ -52,11 +53,12 @@ parts:
       - dos2unix
       - make
       - ant
+      - wget
       - checkinstall
 
 apps:
   i2pi2p:
-    command: /opt/i2p/bin/I2P
+    command: profile/i2pbrowser.sh
     plugs:
       - home
       - network

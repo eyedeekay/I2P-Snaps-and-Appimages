@@ -2,7 +2,7 @@
 
 USER_GH=eyedeekay
 packagename=I2P-Snaps-and-Appimages
-VERSION=0.9.49
+VERSION=0.9.50
 
 echo:
 	@echo make release to do a release $(VERSION)
@@ -18,7 +18,7 @@ dev: release-dev upload-dev pull-dev push-dev
 
 appimage: pull-stable trick
 
-export USE_LXD="--use-lxd"
+##export USE_LXD="--use-lxd"
 
 OLD_VERSION=`grep 'version:' i2pi2p/snapcraft.yaml`
 
@@ -28,6 +28,10 @@ update-stable:
 release-stable: update-stable
 	cd i2pi2p && \
 		/snap/bin/snapcraft clean $(USE_LXD) && /snap/bin/snapcraft $(USE_LXD)
+
+debug-stable:
+	cd i2pi2p && \
+		/snap/bin/snapcraft $(USE_LXD) --debug
 
 upload-stable:
 	cd i2pi2p && \
@@ -85,7 +89,7 @@ AppRun:
 i2p.desktop:
 	@echo "[Desktop Entry]" | tee i2p.desktop
 	@echo "Name=Invisible Internet Project" | tee -a i2p.desktop
-	@echo "Exec=runplain.sh" | tee -a i2p.desktop
+	@echo "Exec=profile/i2pbrowser.sh" | tee -a i2p.desktop
 	@echo "Type=Application" | tee -a i2p.desktop
 	@echo "Icon=i2plogo" | tee -a i2p.desktop
 	@echo "Categories=X-net;" | tee -a i2p.desktop
@@ -114,3 +118,15 @@ mnt:
 umnt:
 	sudo umount i2pi2p-snap; true
 
+artifacts:
+	git clone https://i2pgit.org/i2p-hackers/i2p.firefox -b EXPERIMENTAL-jpackage; true
+	git clone https://i2pgit.org/i2p-hackers/i2p.i2p; true
+	cd i2p.firefox && \
+		./build.sh && \
+		make profile.tgz app-profile.tgz
+
+upload-snap-artifacts:
+	$(eval PROFILE_VERSION := $(shell cat i2p.firefox/src/profile/version.txt))
+	gothub release -p -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n $(VERSION) -d "Artifacts for putting to Snap packages."; true
+	gothub upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "profile.tar.gz" -f i2p.firefox/profile-$(PROFILE_VERSION).tgz
+	gothub upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "app-profile.tar.gz" -f i2p.firefox/app-profile-$(PROFILE_VERSION).tgz

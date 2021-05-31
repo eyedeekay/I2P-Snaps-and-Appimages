@@ -113,7 +113,7 @@ trick: umnt AppRun i2p.desktop mnt
 mnt:
 	sudo rm -rf "Invisible Internet Project_x86-64" "Invisible Internet Project"
 	mkdir -p i2pi2p-snap
-	sudo mount -t squashfs -o ro i2pi2p_"$(VERSION)"_amd64.snap i2pi2p-snap
+	sudo mount -t squashfs -o ro i2pi2p/i2pi2p_"$(VERSION)"_amd64.snap i2pi2p-snap
 
 umnt:
 	sudo umount i2pi2p-snap; true

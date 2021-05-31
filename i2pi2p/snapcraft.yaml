@@ -23,7 +23,7 @@ parts:
     override-build: |
       wget https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-0.9.50/profile.tar.gz
       tar -xvf profile.tar.gz
-      cp -rv profile $SNAPCRAFT_PART_INSTALL
+      cp -rv profile/* $SNAPCRAFT_PART_INSTALL
 #    override-install: |
     build-packages:
       - openjdk-14-jdk
@@ -58,7 +58,9 @@ parts:
 
 apps:
   i2pi2p:
-    command: profile/i2pbrowser.sh
+    command: i2pbrowser.sh
+    environment: 
+      I2PROUTER: $SNAPCRAFT_PART_INSTALL/I2P/bin/I2P
     plugs:
       - home
       - network

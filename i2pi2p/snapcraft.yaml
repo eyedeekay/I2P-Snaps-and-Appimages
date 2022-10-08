@@ -21,12 +21,12 @@ parts:
     source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
     source-branch: master
     override-build: |
-      wget https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-0.9.50/profile.tar.gz
-      tar -xvf profile.tar.gz
-      cp -rv profile/* $SNAPCRAFT_PART_INSTALL
+      git clone https://github.com/eyedeekay/i2p.firefox
+      cd i2p.firefox
+      ./build.sh
 #    override-install: |
     build-packages:
-      - openjdk-14-jdk
+      - openjdk-17-jdk
       - libjetty9-java
       - libtaglibs-standard-jstlel-java
       - libtomcat9-java

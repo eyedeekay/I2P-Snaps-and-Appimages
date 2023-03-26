@@ -1,6 +1,6 @@
-name: i2pi2p-dev
-version: 'latest'
-summary: Invisible Internet Project (I2P) - anonymous network - Dev Builds
+name: i2pi2p
+version: '2.0.0'
+summary: Invisible Internet Project (I2P) - anonymous network
 description: |
   I2P is an anonymizing network, offering a simple layer that identity-sensitive
   applications can use to securely communicate. All data is wrapped with several
@@ -8,12 +8,12 @@ description: |
   trusted parties.
   
   This is an unofficial Snap maintained by I2P contributor idk. It tracks the latest
-  source code of the I2P Java Reference Implementation.
+  release of the I2P Java Reference Implementation.
 
   To install it, use `sudo snap install i2pi2p``
 
 confinement: strict
-base: core20
+base: core22
 
 parts:
   i2pi2p:
@@ -21,45 +21,14 @@ parts:
     source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
     source-branch: master
     override-build: |
-      git clone https://github.com/eyedeekay/i2p.firefox
-      cd i2p.firefox
-      ./build.sh
-#    override-install: |
+      wget -O i2p.deb https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-2.0.0/UNOFFICIAL.FOR.SNAP.USE.ONLY.i2p-bundle_2.0.0.deb
+      apt-get install ./i2p.deb
     build-packages:
-      - openjdk-14-jdk
-      - libjetty9-java
-      - libtaglibs-standard-jstlel-java
-      - libtomcat9-java
-      - bash-completion
-      - gettext
-      - libgetopt-java
-      - libjson-simple-java
-      - libgmp-dev
-      - libservice-wrapper-java
-      - po-debconf
-      - libc6-i386
-      - adduser
-      - apparmor
-      - libjbigi-jni
-      - lsb-base
-      - service-wrapper
-      - ucf
-      - tar
-      - expect
-      - git
-      - nsis
-      - jq
-      - curl
-      - dos2unix
-      - make
-      - ant
       - wget
-      - checkinstall
 
 apps:
   i2pi2p:
-    command: i2pbrowser.sh
-      I2PROUTER: $SNAPCRAFT_PART_INSTALL/I2P/bin/I2P
+    command: /opt/i2p-bundle/bin/i2p-bundle
     plugs:
       - home
       - network

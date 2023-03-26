@@ -2,7 +2,7 @@
 
 USER_GH=eyedeekay
 packagename=I2P-Snaps-and-Appimages
-VERSION=0.9.50
+VERSION=2.2.0
 
 echo:
 	@echo make release to do a release $(VERSION)
@@ -126,7 +126,6 @@ artifacts:
 		make profile.tgz app-profile.tgz
 
 upload-snap-artifacts:
-	$(eval PROFILE_VERSION := $(shell cat i2p.firefox/src/profile/version.txt))
 	gothub release -p -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n $(VERSION) -d "Artifacts for putting to Snap packages."; true
-	gothub upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "profile.tar.gz" -f i2p.firefox/profile-$(PROFILE_VERSION).tgz
-	gothub upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "app-profile.tar.gz" -f i2p.firefox/app-profile-$(PROFILE_VERSION).tgz
+	gothub upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "UNOFFICIAL FOR SNAP USE ONLY i2p-bundle_$(VERSION).deb" -f i2p.firefox/i2p-bundle_$(VERSION)_amd64.deb
+

@@ -126,6 +126,7 @@ artifacts:
 		make profile.tgz app-profile.tgz
 
 upload-snap-artifacts:
-	gothub release -p -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n $(VERSION) -d "Artifacts for putting to Snap packages."; true
-	gothub upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "UNOFFICIAL FOR SNAP USE ONLY i2p-bundle_$(VERSION).deb" -f i2p.firefox/i2p-bundle_$(VERSION)_amd64.deb
+	github-release delete -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION); true
+	github-release release -p -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n $(VERSION) -d "Artifacts for putting to Snap packages."; true
+	github-release upload -R -u eyedeekay -r I2P-Snaps-and-Appimages -t pre-$(VERSION) -n "UNOFFICIAL FOR SNAP USE ONLY i2p-bundle_$(VERSION).deb" -f i2p.firefox/i2p-bundle_$(VERSION)_amd64.deb
 

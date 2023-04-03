@@ -28,7 +28,7 @@ parts:
 
 apps:
   i2pi2p:
-    command: /opt/i2p-bundle/bin/i2p-bundle
+    command: /usr/local/i2p-bundle/i2p-bundle/bin/i2p-bundle
     plugs:
       - home
       - network

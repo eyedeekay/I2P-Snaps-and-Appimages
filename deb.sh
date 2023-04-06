@@ -14,7 +14,7 @@ export machine=unix
 #./buildscripts/build.sh
 jpackage --name I2P-BUNDLE --app-version "$I2P_VERSION" \
     --verbose \
-    --install-dir /usr/local/ \
+    --install-dir /usr/share/ \
     --java-options "-Xmx512m" \
     --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
     --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \

@@ -29,7 +29,7 @@ parts:
 
 apps:
   i2pi2p:
-    command: /usr/local/i2p-bundle/bin/i2p-bundle
+    command: /usr/share/i2p-bundle/bin/i2p-bundle
     plugs:
       - home
       - network

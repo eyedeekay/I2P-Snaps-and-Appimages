@@ -26,6 +26,8 @@ parts:
       apt-get install ./i2p.deb
     build-packages:
       - wget
+    snap:
+      - -usr/share/
 
 apps:
   i2pi2p:

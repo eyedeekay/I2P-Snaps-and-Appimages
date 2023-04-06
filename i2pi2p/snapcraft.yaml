@@ -27,7 +27,7 @@ parts:
     build-packages:
       - wget
     snap:
-      - -usr/share/
+      - -usr/share/i2p-bundle
 
 apps:
   i2pi2p:

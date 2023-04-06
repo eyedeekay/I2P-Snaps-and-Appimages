@@ -17,18 +17,19 @@ base: core22
 
 parts:
   i2pi2p:
-    plugin: make
+    plugin: nil
     source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
     source-branch: master
     override-build: |
       wget -O i2p.deb https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-2.2.0/UNOFFICIAL.FOR.SNAP.USE.ONLY.i2p-bundle_2.2.0.deb
+    override-stage: |
       apt-get install ./i2p.deb
     build-packages:
       - wget
 
 apps:
   i2pi2p:
-    command: /usr/local/i2p-bundle/i2p-bundle/bin/i2p-bundle
+    command: /usr/local/i2p-bundle/bin/i2p-bundle
     plugs:
       - home
       - network

@@ -20,10 +20,9 @@ parts:
     plugin: nil
     source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
     source-branch: master
-    override-build: |
-      wget -O i2p.deb https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-2.2.0/UNOFFICIAL.FOR.SNAP.USE.ONLY.i2p-bundle_2.2.0.deb
     override-stage: |
-      apt-get install ./i2p.deb
+      wget -O i2p.deb https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-2.2.0/UNOFFICIAL.FOR.SNAP.USE.ONLY.i2p-bundle_2.2.0.deb
+      apt-get install -y ./i2p.deb
     build-packages:
       - wget
     stage:

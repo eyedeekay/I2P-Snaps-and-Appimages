@@ -30,6 +30,7 @@ jobs:
         with:
           path: i2pi2p
           snapcraft-args: --verbose
+      - run: cat /home/runner/.local/state/snapcraft/log/snapcraft-*.log
 
   buildrpm:
     runs-on: ubuntu-latest

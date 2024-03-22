@@ -9,14 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
       - run: |
           sudo apt-get update
-          sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext libxcb1-dev openjdk-21-jdk
+          sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext libxcb1-dev openjdk-21-jdk libxau-dev
       - name: build with script
         run: ./deb.sh
       - name: Upload .deb

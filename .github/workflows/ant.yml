@@ -16,7 +16,7 @@ jobs:
           distribution: 'temurin'
       - run: |
           sudo apt-get update
-          sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext
+          sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext libxcb1-dev openjdk-21-jdk
       - name: build with script
         run: ./deb.sh
       - name: Upload .deb
@@ -30,7 +30,7 @@ jobs:
         with:
           path: i2pi2p
           snapcraft-args: --verbose
-      - run: cat /home/runner/.local/state/snapcraft/log/snapcraft-*.log
+      - run: find /home/runner/.local/state/snapcraft/log/ -exec cat {} \;
 
   buildrpm:
     runs-on: ubuntu-latest

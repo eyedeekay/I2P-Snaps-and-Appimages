@@ -28,6 +28,7 @@ jobs:
       - uses: snapcore/action-build@v1
         with:
           path: i2pi2p
+          snapcraft-args: --debug
 
   buildrpm:
     runs-on: ubuntu-latest

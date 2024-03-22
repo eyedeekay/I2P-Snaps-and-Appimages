@@ -18,7 +18,7 @@ base: core22
 parts:
   i2pi2p:
     plugin: dump
-    source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/i2p-snap-2.4.2-test/i2p-bundle_2.4.91_amd64.deb
+    source: i2p-bundle_amd64.deb
     source-type: deb
 
 apps:

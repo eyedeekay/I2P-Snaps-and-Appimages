@@ -25,6 +25,8 @@ jobs:
         with:
           path: i2p.firefox/i2p-bundle_*_amd64.deb
           name: i2p-bundle_amd64.deb
+      - run: cp i2p.firefox/i2p-bundle_*_amd64.deb i2pi2p/i2p-bundle_amd64.deb
+      - run: cd i2pi2p && snapcraft --debug
 
   buildrpm:
     runs-on: ubuntu-latest

@@ -17,7 +17,6 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext
-          sudo snap install --classic snapcraft
       - name: build with script
         run: ./deb.sh
       - name: Upload .deb
@@ -26,7 +25,9 @@ jobs:
           path: i2p.firefox/i2p-bundle_*_amd64.deb
           name: i2p-bundle_amd64.deb
       - run: cp i2p.firefox/i2p-bundle_*_amd64.deb i2pi2p/i2p-bundle_amd64.deb
-      - run: cd i2pi2p && snapcraft --debug
+      - uses: snapcore/action-build@v1
+        with:
+          path: i2pi2p
 
   buildrpm:
     runs-on: ubuntu-latest

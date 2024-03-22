@@ -30,7 +30,7 @@ jobs:
     container: fedora
     steps:
       - name: dependencies
-        run: sudo yum install -y gettext golang-go git ant jq wget curl gpg xz ca-certificates rpm-build
+        run: sudo yum install -y gettext golang-go git ant jq wget curl gpg xz ca-certificates rpm-build dos2unix
       - uses: actions/checkout@v4
       - name: Set up JDK 21
         uses: actions/setup-java@v4

@@ -12,6 +12,7 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext libxcb1-dev openjdk-21-jdk libxau-dev
+          sudo update-java-alternatives --set java-1.21.0-openjdk-amd64
       - name: build with script
         run: ./deb.sh
       - name: Upload .deb

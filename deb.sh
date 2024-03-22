@@ -11,7 +11,8 @@ cd i2p.firefox || exit 1
 . ./config.sh
 . ./i2pversion
 export machine=unix
-#./buildscripts/build.sh
+echo building launcher
+./buildscripts/launcher.sh
 jpackage --name I2P-BUNDLE --app-version "$I2P_VERSION" \
     --verbose \
     --install-dir /usr/share/ \

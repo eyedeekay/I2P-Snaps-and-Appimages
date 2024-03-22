@@ -17,7 +17,7 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install -y nsis nsis-common nsis-pluginapi wget dos2unix curl jq gpg gettext
-          sudo snap install snapcraft
+          sudo snap install --classic snapcraft
       - name: build with script
         run: ./deb.sh
       - name: Upload .deb

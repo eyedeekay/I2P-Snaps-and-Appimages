@@ -1,6 +1,7 @@
 # I2P-Snaps-and-Appimages
 
 Unofficial I2P Snap and AppImage packages for redistribution.
+It is nearly fixed.
 
  - **[Release Snap](https://snapcraft.io/i2pi2p)**
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/i2pi2p)

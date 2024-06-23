@@ -16,17 +16,10 @@ confinement: strict
 base: core22
 
 parts:
-  packages:
-    plugin: nil
-    script:
-      - apt update
-      - apt install libjpeg9 libx11-dev
   i2pi2p:
     plugin: dump
     source: i2p-bundle_amd64.deb
     source-type: deb
-    after:
-      - packages
 
 apps:
   i2pi2p:

@@ -28,3 +28,8 @@ jobs:
           snapcraft-args: --verbose
       - run: find /home/runner/.local/state/snapcraft/log/ -exec cat {} \;
       - run: find . -name '*.snap'
+      - name: Upload .snap
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./i2pi2p/i2pi2p_*_amd64.snap
+          name: i2p-bundle_amd64.snap

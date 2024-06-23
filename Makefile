@@ -2,7 +2,7 @@
 
 USER_GH=eyedeekay
 packagename=I2P-Snaps-and-Appimages
-VERSION=2.2.0
+VERSION=2.5.2
 
 echo:
 	@echo make release to do a release $(VERSION)
@@ -24,6 +24,7 @@ OLD_VERSION=`grep 'version:' i2pi2p/snapcraft.yaml`
 
 update-stable:
 	sed -i "s|$(OLD_VERSION)|version: '$(VERSION)'|g" i2pi2p/snapcraft.yaml
+	cp -v i2pi2p/snapcraft.yaml i2pi2p-dev/snapcraft.yaml
 
 release-stable: update-stable
 	cd i2pi2p && \

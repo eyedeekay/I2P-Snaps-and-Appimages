@@ -27,3 +27,4 @@ jobs:
           path: i2pi2p
           snapcraft-args: --verbose
       - run: find /home/runner/.local/state/snapcraft/log/ -exec cat {} \;
+      - run: find . -name '*.snap'

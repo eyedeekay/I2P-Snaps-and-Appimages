@@ -1,5 +1,5 @@
 name: i2pi2p
-version: '2.2.0'
+version: '2.4.0'
 summary: Invisible Internet Project (I2P) - anonymous network
 description: |
   I2P is an anonymizing network, offering a simple layer that identity-sensitive
@@ -17,21 +17,13 @@ base: core22
 
 parts:
   i2pi2p:
-    plugin: nil
-    source: https://github.com/eyedeekay/I2P-Snaps-and-Appimages.git
-    source-branch: master
-    override-stage: |
-      wget -O i2p.deb https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/pre-2.2.0/UNOFFICIAL.FOR.SNAP.USE.ONLY.i2p-bundle_2.2.0.deb
-      mkdir -p /usr/share/desktop-directories /usr/share/applications
-      apt-get install -y ./i2p.deb
-    build-packages:
-      - wget
-    stage:
-      - usr/share/i2p-bundle
+    plugin: dump
+    source: i2p-bundle_amd64.deb
+    source-type: deb
 
 apps:
   i2pi2p:
-    command: /usr/share/i2p-bundle/bin/i2p-bundle
+    command: /usr/share/i2p-bundle/bin/I2P-BUNDLE
     plugs:
       - home
       - network

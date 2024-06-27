@@ -35,7 +35,6 @@ debug-stable:
 		/snap/bin/snapcraft $(USE_LXD) --debug
 
 upload-stable:
-	cd i2pi2p && \
 		/snap/bin/snapcraft upload --release=stable i2pi2p_$(VERSION)_amd64.snap
 
 #release-dev: (Currently built in CI only, see .github/workflows)
@@ -43,7 +42,6 @@ upload-stable:
 #		/snap/bin/snapcraft clean $(USE_LXD) && /snap/bin/snapcraft $(USE_LXD)
 
 #upload-dev:
-#	cd i2pi2p-dev && \
 #		/snap/bin/snapcraft upload --release=edge i2pi2p-dev_latest_amd64.snap
 
 pull-stable:

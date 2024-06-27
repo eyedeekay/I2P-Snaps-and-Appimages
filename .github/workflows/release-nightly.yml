@@ -73,4 +73,4 @@ jobs:
           replacesArtifacts: true
           makeLatest: true
           tag: nightly
-          bodyFile: "RELEASE.md"
+          bodyFile: "README.md"

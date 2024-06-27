@@ -20,12 +20,27 @@ parts:
     plugin: dump
     source: i2p-bundle_amd64.deb
     source-type: deb
+    stage-packages: [ libxext6 ]
 
 apps:
   i2pi2p:
     command: usr/share/i2p-bundle/lib/launcher.sh
     plugs:
+      - alsa
+      - audio-playback
+      - browser-sandbox
+      - desktop
+      - firewall-control
+      - gsettings
+      - hardware-observe
       - home
+      - host-hunspell
       - network
       - network-bind
-      - firewall-control
+      - network-observe
+      - opengl
+      - screen-inhibit-control
+      - system-packages-doc
+      - u2f-devices
+      - unity7
+      - upower-observe

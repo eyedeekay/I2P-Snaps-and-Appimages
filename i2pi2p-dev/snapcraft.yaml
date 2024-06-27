@@ -28,13 +28,11 @@ apps:
     plugs:
       - alsa
       - audio-playback
-      - browser-sandbox
       - desktop
       - firewall-control
       - gsettings
       - hardware-observe
       - home
-      - host-hunspell
       - network
       - network-bind
       - network-observe

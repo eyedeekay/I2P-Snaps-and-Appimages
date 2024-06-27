@@ -53,3 +53,6 @@ pull-stable:
 #	snap download --edge i2pi2p-dev --basename i2pi2p-dev_latest_amd64
 
 pull: pull-stable pull-dev
+
+test:
+	rm -frv *.snap && make pull-stable && snapcraft upload i2pi2p_2.5.2_amd64.snap

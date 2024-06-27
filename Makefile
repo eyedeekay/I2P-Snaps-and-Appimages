@@ -47,7 +47,7 @@ upload-stable:
 #		/snap/bin/snapcraft upload --release=edge i2pi2p-dev_latest_amd64.snap
 
 pull-stable:
-	snap download --edge i2pi2p --basename i2pi2p_$(VERSION)_amd64
+	wget https://github.com/eyedeekay/I2P-Snaps-and-Appimages/releases/download/nightly/i2pi2p_2.5.2_amd64.snap
 
 #pull-dev:
 #	snap download --edge i2pi2p-dev --basename i2pi2p-dev_latest_amd64

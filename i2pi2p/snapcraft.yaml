@@ -20,7 +20,7 @@ parts:
     plugin: dump
     source: i2p-bundle_amd64.deb
     source-type: deb
-    stage-packages: [ libxext6 ]
+    stage-packages: [ libxext6, libxrender1 ]
 
 apps:
   i2pi2p:

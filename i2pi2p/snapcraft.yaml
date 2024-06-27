@@ -23,7 +23,7 @@ parts:
 
 apps:
   i2pi2p:
-    command: $SNAP/usr/share/i2p-bundle/lib/launcher.sh
+    command: usr/share/i2p-bundle/lib/launcher.sh
     plugs:
       - home
       - network

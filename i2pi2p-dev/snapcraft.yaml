@@ -23,7 +23,7 @@ parts:
 
 apps:
   i2pi2p:
-    command: /usr/share/i2p-bundle/bin/I2P-BUNDLE
+    command: /usr/share/i2p-bundle/lib/launcher.sh
     plugs:
       - home
       - network

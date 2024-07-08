@@ -8,7 +8,7 @@ echo:
 	@echo make release to do a release $(VERSION)
 
 version:
-	git tag -s -a "i2p-snap-$(VERSION)""
+	git tag -s -a "i2p-snap-$(VERSION)"
 
 release: version dev stable
 

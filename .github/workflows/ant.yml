@@ -20,6 +20,13 @@ jobs:
         with:
           path: i2p.firefox/i2p-bundle_*_amd64.deb
           name: i2p-bundle_amd64.deb
+      - name: build with script
+        run: ./appimage.sh
+      - name: Upload .deb
+        uses: actions/upload-artifact@v4
+        with:
+          path: i2p.AppImage
+          name: i2p.AppImage
       - run: cp -v i2p.firefox/i2p-bundle_*_amd64.deb i2pi2p/i2p-bundle_amd64.deb
       - run: ls i2pi2p
       - uses: snapcore/action-build@v1

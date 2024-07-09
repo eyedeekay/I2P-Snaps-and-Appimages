@@ -22,7 +22,7 @@ jobs:
           name: i2p-bundle_amd64.deb
       - name: build with script
         run: ./appimage.sh
-      - name: Upload .deb
+      - name: Upload .AppImage
         uses: actions/upload-artifact@v4
         with:
           path: i2p.AppImage

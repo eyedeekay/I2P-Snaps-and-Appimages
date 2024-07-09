@@ -52,4 +52,5 @@ echo "   cp -rv \"lib/config" "\$HOME/i2p-config\"" | tee -a AppRun
 echo fi | tee -a AppRun
 echo "\$APPDIR/bin/I2P-BUNDLE-APPIMAGE" | tee -a AppRun
 chmod +x AppRun
+rm -f ../i2p.AppImage
 "$HOME/Downloads/appimagetool-x86_64.AppImage" . ../i2p.AppImage

@@ -3,3 +3,9 @@ i2p.tar.gz
 *.deb
 i2p.i2p
 i2p.firefox
+*.snap
+*.deb
+*.AppImage
+core
+i2pAppDir
+i2p.i2p.jpackage-build

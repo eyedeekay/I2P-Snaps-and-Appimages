@@ -6,7 +6,8 @@
 # Motivation
 
 wget -c -O appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-chmod +x "$(pwd)/appimagetool"
+APPIMAGETOOL="$(pwd)/appimagetool"
+chmod +x "$APPIMAGETOOL"
 git clone https://github.com/eyedeekay/i2p.firefox
 cd i2p.firefox || exit 1
 
@@ -55,4 +56,4 @@ echo fi | tee -a AppRun
 echo "\$APPDIR/bin/I2P-BUNDLE-APPIMAGE" | tee -a AppRun
 chmod +x AppRun
 rm -f ../i2p.AppImage
-"$(pwd)/appimagetool" . ../i2p.AppImage
+"$APPIMAGETOOL" . ../i2p.AppImage

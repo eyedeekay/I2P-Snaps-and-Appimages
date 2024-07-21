@@ -2,7 +2,7 @@
 
 USER_GH=eyedeekay
 packagename=I2P-Snaps-and-Appimages
-VERSION=2.5.9
+VERSION=2.6.0
 
 echo:
 	@echo make release to do a release $(VERSION)

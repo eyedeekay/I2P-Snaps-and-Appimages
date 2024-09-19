@@ -1,0 +1,44 @@
+name: i2pi2p
+version: '2.6.0'
+summary: Invisible Internet Project (I2P) - anonymous network
+description: |
+  I2P is an anonymizing network, offering a simple layer that identity-sensitive
+  applications can use to securely communicate. All data is wrapped with several
+  layers of encryption, and the network is both distributed and dynamic, with no
+  trusted parties.
+  
+  This is an unofficial Snap maintained by I2P contributor idk. It tracks the latest
+  release of the I2P Java Reference Implementation.
+
+  To install it, use `sudo snap install i2pi2p``
+
+confinement: strict
+base: core22
+
+parts:
+  i2pi2p:
+    plugin: dump
+    source: i2p-bundle_amd64.deb
+    source-type: deb
+    stage-packages: [ libxext6, libxrender1 ]
+
+apps:
+  i2pi2p:
+    command: usr/share/i2p-bundle/lib/launcher.sh
+    plugs:
+      - alsa
+      - audio-playback
+      - desktop
+      - firewall-control
+      - gsettings
+      - hardware-observe
+      - home
+      - network
+      - network-bind
+      - network-observe
+      - opengl
+      - screen-inhibit-control
+      - system-packages-doc
+      - u2f-devices
+      - unity7
+      - upower-observe

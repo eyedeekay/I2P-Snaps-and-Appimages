@@ -20,7 +20,7 @@ parts:
     plugin: dump
     source: https://github.com/eyedeekay/I2P-Snaps-and-AppImages
     source-type: git
-    build-packages: [ nsis, nsis-common, nsis-pluginapi, wget, dos2unix, curl, jq, gpg, gettext, libxcb1-dev, openjdk-21-jdk, libxau-dev, libjpeg-dev, libx11-dev, libxi-dev, libasound-dev, libfuse-dev ]
+    build-packages: [ ant, nsis, nsis-common, nsis-pluginapi, wget, dos2unix, curl, jq, gpg, gettext, libxcb1-dev, openjdk-21-jdk, libxau-dev, libjpeg-dev, libx11-dev, libxi-dev, libasound-dev, libfuse-dev ]
     override-build: ./deb.sh
     override-prime: apt-get install -y i2p.firefox/i2p-bundle_*_amd64.deb
     stage-packages: [ libxext6, libxrender1 ]
